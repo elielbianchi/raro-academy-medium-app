@@ -1,13 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ArtigoPage } from "./pages/Artigo";
+import { ArtigosPage } from "./pages/Artigos";
+import { EditarArquivoPage } from "./pages/EditarArquivo";
+import { LoginPage } from "./pages/Login";
+import { MeusArtigosPage } from "./pages/MeusArtigos";
+import { NotFoundPage } from "./pages/NotFound";
 
 function App() {
   return (
-    /*App.tsx*/
 
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        
+
         <Route path="/" element={<ArtigosPage />} />
         <Route path="/artigo/:id" element={<ArtigoPage />} />
         <Route path="/artigos" element={<MeusArtigosPage />} />
