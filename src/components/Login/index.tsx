@@ -1,4 +1,4 @@
-import apiClient from '../../services/api-client';
+import apiClient from "../../services/api-client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
@@ -18,7 +18,7 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      const url = '/auth/login';;
+      const url = "/auth/login";
       const response = await apiClient.post(url, { login, senha });
 
       const { access_token, id } = response.data;
@@ -26,6 +26,7 @@ export const Login = () => {
       if (access_token) {
         localStorage.setItem("access_token", access_token);
         localStorage.setItem("id", id);
+        setLoading(false);
         navigate("/artigos");
       }
     } catch (error: any) {
@@ -34,9 +35,8 @@ export const Login = () => {
       } else {
         setErro("Erro ao autenticar usuário. Tente novamente mais tarde.");
       }
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   return (

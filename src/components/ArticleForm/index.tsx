@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArticleThumbnailProps } from "../ArticleThumbnail/ArticleThumbnail.types";
 import { Button } from "../Button";
 import { Input } from "../Input";
@@ -6,17 +7,20 @@ import { RitchTextEditor } from "../RitchTextEditor";
 
 type ArticleFormProps = {
   article?: ArticleThumbnailProps;
-  onSubmit?: (article: ArticleThumbnailProps) => void;
+  onSubmit: (article: ArticleThumbnailProps) => void;
+  onClick: (article: ArticleThumbnailProps) => void;
 };
 
 export const ArticleForm: React.FC<ArticleFormProps> = ({
   article,
   onSubmit,
+  onClick,
 }) => {
   const [titulo, setTitulo] = useState("");
   const [resumo, setResumo] = useState("");
   const [imagem, setImagem] = useState("");
   const [conteudo, setConteudo] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (article) {
@@ -50,12 +54,18 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
     };
   };
 
+  const handleClick = () => {
+    onClick(article as ArticleThumbnailProps);
+  };
+
   return (
     <div className="grid min-h-screen mx-10 ">
       <div>
         <h1 className="text-xl font-semibold">
           Hello there 👋,&nbsp;
-          <span className="font-normal">please fill in your information to continue</span>
+          <span className="font-normal">
+            please fill in your information to continue
+          </span>
         </h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <Input
@@ -68,7 +78,7 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
             required
           />
           <Input
-            placeholder="Breve rewsumo do artigo"
+            placeholder="Breve resumo do artigo"
             type="textarea"
             name="resumo"
             label="Resumo"
@@ -78,7 +88,7 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
           />
 
           <Input
-            placeholder="Breve rewsumo do artigo"
+            placeholder="Imagem do artigo"
             type="file"
             name="image"
             label="Banner"
@@ -94,6 +104,8 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
           />
 
           <Button type="submit">Salvar</Button>
+          <Button typeExtend="back" action={() => navigate("/artigos")}>Voltar</Button>
+          <Button typeExtend="delete" action={() => handleClick()}>Deletar</Button>
         </form>
       </div>
     </div>
