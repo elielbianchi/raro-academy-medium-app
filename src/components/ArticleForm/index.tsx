@@ -63,9 +63,7 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
       <div>
         <h1 className="text-xl font-semibold">
           Hello there 👋,&nbsp;
-          <span className="font-normal">
-            please fill in your information to continue
-          </span>
+          <span className="font-normal">preencha os dados para continuar</span>
         </h1>
         <form className="mt-6" onSubmit={handleSubmit}>
           <Input
@@ -102,10 +100,15 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
             value={conteudo}
             onChange={setConteudo}
           />
-
-          <Button type="submit">Salvar</Button>
-          <Button typeExtend="back" action={() => navigate("/artigos")}>Voltar</Button>
-          <Button typeExtend="delete" action={() => handleClick()}>Deletar</Button>
+          <div className="flex">
+            <Button type="submit">Salvar</Button>
+            <Button typeExtend="back" action={() => navigate("/artigos")}>
+              Voltar
+            </Button>
+            <Button typeExtend="delete" action={() => handleClick()}>
+              Deletar
+            </Button>
+          </div>
         </form>
       </div>
     </div>
