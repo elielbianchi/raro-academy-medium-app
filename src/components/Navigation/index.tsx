@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ActivableLink } from "../ActivableLink";
 
 export const Navigation = () => {
@@ -19,18 +19,18 @@ export const Navigation = () => {
   if(!isAuthenticated) { 
     return (
       <>
-        <ActivableLink to="/">Home</ActivableLink>
-        <ActivableLink to="/login">Login</ActivableLink>
+        <ActivableLink to="/">HOME</ActivableLink>
+        <ActivableLink to="/login">LOGIN</ActivableLink>
       </>
     );
   }
 
   return (
     <>
-      <ActivableLink to="/">Home</ActivableLink>
-      <ActivableLink to="/artigos">Meus Artigos</ActivableLink>
-      <ActivableLink to="/artigos/novo">Novo Artigo</ActivableLink>
-      <ActivableLink to="/" onClick={logout} type="button">Logout</ActivableLink>
+      <ActivableLink to="/">HOME</ActivableLink>
+      <ActivableLink to="/artigos">MEUS ARTIGOS</ActivableLink>
+      <ActivableLink to="/artigos/novo">NOVO ARTIGO</ActivableLink>
+      <ActivableLink to="/" onClick={logout} type="button">LOGOUT</ActivableLink>
     </>
   );
 };

@@ -7,7 +7,7 @@ export type ButtonProps = {
   action?: () => void;
 };
 
-let buttonColor = "green";
+let buttonColor = "blue";
 
 export const Button: React.FC<ButtonProps> = ({
   type,
@@ -40,7 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
         disabled={disabled}
         onClick={handleAction}
         className={`
-        w-full mt-6 tracking-widest
+        w-full ml-3 mr-3 mt-6 tracking-widest
         border-b-${buttonColor}-600 bg-${buttonColor}-500 py-3 text-white font-bold
         hover:bg-${buttonColor}-400 active:translate-y-[0.125rem] active:border-b-${buttonColor}-400
       `}

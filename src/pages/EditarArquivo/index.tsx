@@ -29,7 +29,7 @@ export const EditarArquivoPage = () => {
         ...artigo,
       });
 
-      navigate(`/artigos/${artigo.id}`);
+      navigate(`/artigo/${artigo.id}`);
 
     } else {
       const response = await apiClient.post<ArticleThumbnailProps>(`/artigos/`, {

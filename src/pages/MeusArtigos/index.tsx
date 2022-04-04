@@ -24,9 +24,11 @@ export const MeusArtigosPage = () => {
       <ArticleList articles={articles} />
     </div>
   ) : (
-    <Message 
-    title="Sem artigos... 🙁" 
-    content="O que você acha de publicar seu primeiro artigo?" 
-    link="Vamos lá!"/>
+    <Message
+      title="Sem artigos... 🙁"
+      content="O que você acha de publicar seu primeiro artigo?"
+      link="/artigos/novo"
+      textLink="Vamos lá!"
+    />
   );
 };
