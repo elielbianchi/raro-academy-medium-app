@@ -91,7 +91,7 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
             name="image"
             label="Banner"
             onChange={transformaImagemEmBase64}
-            required
+            required={!article}
           />
 
           <RitchTextEditor
@@ -101,11 +101,13 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
             onChange={setConteudo}
           />
           <div className="flex">
-            <Button type="submit">Salvar</Button>
-            <Button typeExtend="back" action={() => navigate("/artigos")}>
+            <Button type="submit" buttonColor="blue">
+              Salvar
+            </Button>
+            <Button buttonColor="gray" action={() => navigate("/artigos")}>
               Voltar
             </Button>
-            <Button typeExtend="delete" action={() => handleClick()}>
+            <Button buttonColor="red" action={() => handleClick()}>
               Deletar
             </Button>
           </div>
